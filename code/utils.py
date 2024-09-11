@@ -50,7 +50,7 @@ def load_data_medical(dataset_addr, train_ratio, test_ratio=0.2):
     idx_train, idx_val = train_test_split(idx_train, train_size=train_ratio/(1-test_ratio), random_state=42, stratify=labels[idx_train])
 
     adj['W'] = []
-    for nc in range(labels.max() + 1):
+    for nc in range(int(labels.max()) + 1):
         nc_idx = np.where(labels[idx_train] == nc)[0]
         nc_idx = np.array(idx_train)[nc_idx]
         adj['W'].append(adj_W[np.ix_(nc_idx,nc_idx)])
