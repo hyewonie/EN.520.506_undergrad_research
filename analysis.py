@@ -1,19 +1,16 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Load the dataset
-file_path = '/Users/hyewon/Desktop/research/diabetes.csv'
-df = pd.read_csv(file_path)
+import pickle
 
 
+file_path = './medical_data_2.pkl'
 
-# df.hist(figsize=(10, 8))
 
+# Function to load the pickle file
+def test_pickle(file_path):
+    with open(file_path, 'rb') as f:
+        adj, features, labels = pickle.load(f)
+    print("Adjacency Matrix Shape:", adj.shape)
+    print("Features Shape:", features.shape)
+    print("Labels Shape:", labels.shape)
 
-# plt.figure(figsize=(10, 8))
-# sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-# plt.show()
-
-outcome_counts = df['Outcome'].value_counts()
-print(outcome_counts)
+# Test the newly created pickle file
+test_pickle('medical_data_2.pkl')

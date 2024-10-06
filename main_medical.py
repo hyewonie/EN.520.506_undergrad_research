@@ -20,6 +20,7 @@ from code.model import my_sigmoid
 
 
 def train():
+    log_file = open('training_log_data_2.txt', 'a') # for outputting the training results to txt file
     ### create structure for discriminator and weighting networks
     struc_D = {'dropout': args.dropout_D, 'wd': 5e-4, 'lr': args.lr_D, 'nhid': structure_D}
     ### For simplicity, all weighting networks have the same hyper-parameters. They can be defined as a list of /
@@ -65,6 +66,15 @@ def train():
                 max_val[key] = val
 
         ### Print stats in each epoch
+        log_file.write(
+            'Epoch: {:04d}\tAcc_Train: {:.4f}\tF1_Macro_Train: {:.4f}\tLoss_Train: {:.4f}\n'.format(
+                epoch + 1,
+                stats['acc_train'],
+                stats['f1Macro_train'],
+                stats['loss_train']
+            )
+        )
+
         print('Epoch: {:04d}'.format(epoch + 1))
         print('acc_train: {:.4f}'.format(stats['acc_train']))
         print('f1_macro_train: {:.4f}'.format(stats['f1Macro_train']))
@@ -76,6 +86,8 @@ def train():
         if 'loss' in key or 'nll' in key or 'test' not in key:
             continue
         print(key.replace('_', ' ') + ' : ' + str(val))
+    
+    log_file.close()
 
 
 ### Calculate metrics on validation and test sets
@@ -143,7 +155,7 @@ if __name__ == '__main__':
     ### Features is a tensor with size N by F
     ### labels is a list of node labels
     ### idx train is a list contains the index of training samples. idx_val and idx_test follow the same pattern
-    adj, features, labels, idx_train, idx_val, idx_test = load_data_medical(dataset_addr='./graph_data_with_features.pkl',
+    adj, features, labels, idx_train, idx_val, idx_test = load_data_medical(dataset_addr='./medical_data_2.pkl',
                                                                             train_ratio=0.6, test_ratio=0.2)
 
     ### start of code
