@@ -998,3 +998,8 @@ Epoch: 0997	Acc_Train: 0.6522	F1_Macro_Train: 0.3947	Loss_Train: 0.6931
 Epoch: 0998	Acc_Train: 0.6522	F1_Macro_Train: 0.3947	Loss_Train: 0.6931
 Epoch: 0999	Acc_Train: 0.6522	F1_Macro_Train: 0.3947	Loss_Train: 0.6931
 Epoch: 1000	Acc_Train: 0.6522	F1_Macro_Train: 0.3947	Loss_Train: 0.6931
+========Results==========
+acc test : 0.6493506493506493
+f1Macro test : 0.3937007874015748
+f1Binary test : 0.0
+AUC test : 0.5
