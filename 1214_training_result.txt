@@ -1,0 +1,6 @@
+Gower method, output death date
+========Results==========
+acc test : 0.6770428015564203
+f1Macro test : 0.6295736736997481
+f1Binary test : 0.49696969696969695
+AUC test : 0.6721751412429379
