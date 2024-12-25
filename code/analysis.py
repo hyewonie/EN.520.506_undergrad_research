@@ -9,8 +9,7 @@ features = np.load('features_processed.npy')
 death_date = np.load('death_date_processed.npy')
 short_followup = np.load('short_followup_processed.npy')
 
-# 1. Load the Adjacency Matrix
-# Replace 'adjacency_matrix.csv' with your actual file path if different
+# Load the Adjacency Matrix
 df = pd.read_csv('K_matrix_1214.csv', header=None)
 
 # Display the original adjacency matrix
@@ -19,7 +18,7 @@ print(df)
 
 weights = df.values.copy()
 
-# 3. Define Threshold Percentages
+# Define Threshold Percentages
 threshold_percentages = [80, 85, 90, 95, 99]
 
 # Calculate the threshold values based on percentiles
@@ -30,7 +29,7 @@ print("\nThreshold Values:")
 for perc, val in threshold_dict.items():
     print(f"{perc}% Threshold: {val}")
 
-# 4. Create Binary Adjacency Matrices
+# Create Binary Adjacency Matrices
 for perc in threshold_percentages:
     threshold = threshold_dict[perc]
     # Apply threshold: 1 if weight > threshold, else 0
