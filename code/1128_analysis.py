@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
-from soft_WL import Soft_WL_Subtree_NodeLevel
+from graph_conv_clustering import Soft_WL_Subtree_NodeLevel
 import time
 from scipy.sparse import csr_matrix
 import pickle
