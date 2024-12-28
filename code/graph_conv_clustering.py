@@ -1,5 +1,5 @@
-# Modified Implementation of Soft WL subtree kernel for Node-Level Analysis
-# adapted from: https://github.com/Sulam-Group/BiGraph4TME/blob/master/soft_wl_subtree.py
+# Modified Implementation of soft_wl_subtree.py for Node-Level Analysis
+# adopted from: https://github.com/Sulam-Group/BiGraph4TME/blob/master/soft_wl_subtree.py
 
 import numpy as np
 import phenograph
@@ -8,7 +8,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 class Soft_WL_Subtree_NodeLevel(object):
-    """Calculate the Soft WL subtree kernel at the node level for a single graph"""
 
     def __init__(self, n_iter=0, n_jobs=-1, k=100, normalize=True):
         self.n_iter = n_iter  # Number of iterations of graph convolution
